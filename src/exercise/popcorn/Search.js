@@ -1,0 +1,14 @@
+import { useState } from "react";
+
+export const Search = ({ query, setQuery }) => {
+  // const [query, setQuery] = useState("");
+  return (
+    <input
+      className="justify-self-center w-full bg-violet-500 text-white  px-4 py-2 rounded-sm  placeholder-slate-300 outline-none focus:shadow-lg focus:transform focus:translate-y-2"
+      type="text"
+      placeholder="Search movies..."
+      value={query}
+      onChange={(e) => setQuery(e.target.value)}
+    />
+  );
+};
