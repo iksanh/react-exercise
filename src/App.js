@@ -12,6 +12,7 @@ import StarRating from "./exercise/popcorn/start_rating.component";
 import RatingComponent from "./exercise/popcorn/start_rating.component";
 import TextExpander from "./chalange/textexpander/textexpander.component";
 import AppTextExpander from "./chalange/textexpander/textexpander.component";
+import CurrencyConverterApp from "./chalange/currencyconverter/CurrencyConverterApp";
 
 const initialItems = [
   { id: 1, description: "Passports", quantity: 2, packed: false },
@@ -52,6 +53,7 @@ const App = () => {
           <Route index element={<Chalange />} />
           <Route path="calculator" element={<Calculator />} />
           <Route path="textexpander" element={<AppTextExpander />} />
+          <Route path="currency" element={<CurrencyConverterApp />} />
         </Route>
         <Route path="*" element={<NoMatch />} />
       </Route>

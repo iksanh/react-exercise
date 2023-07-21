@@ -32,6 +32,19 @@ const MovieDetail = ({
   } = movie;
 
   useEffect(() => {
+    const callback = (e) => {
+      if (e.code === "Escape") {
+        onCloseMovie();
+        // console.log("Closing");
+      }
+    };
+    document.addEventListener("keydown", callback);
+    return () => {
+      document.removeEventListener("keydown", callback);
+    };
+  }, [onCloseMovie]);
+
+  useEffect(() => {
     const getDataDetail = async () => {
       setIsLoading(true);
       const res = await fetch(
@@ -40,7 +53,7 @@ const MovieDetail = ({
       const data = await res.json();
       setMovie(data);
       setIsLoading(false);
-      console.log(data);
+      // console.log(data);
     };
     getDataDetail();
   }, [selectedId]);
@@ -65,7 +78,7 @@ const MovieDetail = ({
     // effect unmount component
     return () => {
       document.title = "Popcorn";
-      console.log(`Clean up effect for movie ${title}`);
+      // console.log(`Clean up effect for movie ${title}`);
     };
   }, [title]);
   return (

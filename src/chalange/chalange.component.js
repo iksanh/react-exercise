@@ -10,6 +10,9 @@ const Chalange = () => {
         <li>
           <Link to="textexpander">TextExpander</Link>
         </li>
+        <li>
+          <Link to="currency">Currency</Link>
+        </li>
       </ul>
     </div>
   );

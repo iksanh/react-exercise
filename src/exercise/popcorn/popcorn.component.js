@@ -73,17 +73,21 @@ export default function Popcorn() {
   const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);
   const [watched, setWatched] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   const [error, setError] = useState("");
   const [selectedId, setSelectedId] = useState(null);
   const tempQuery = "interstellar";
 
   useEffect(() => {
+    const controller = new AbortController();
     const getData = async () => {
+      setIsLoading(true);
+      setError("");
       try {
         const res = await fetch(
-          `http://www.omdbapi.com/?apikey=${KEY}&s=${query}`
+          `http://www.omdbapi.com/?apikey=${KEY}&s=${query}`,
+          { signal: controller.signal }
         );
 
         if (!res.ok) throw new Error("Failed get Data");
@@ -91,9 +95,13 @@ export default function Popcorn() {
 
         if (data.Response === "False") throw new Error("Movie Not Found");
         setMovies(data.Search);
+        setError("");
       } catch (error) {
-        console.log(error);
-        setError(error.message);
+        console.log(error.message);
+
+        if (error.message !== "AbortError") {
+          setError(error.message);
+        }
       } finally {
         setIsLoading(false);
       }
@@ -104,7 +112,12 @@ export default function Popcorn() {
         return;
       }
     };
+    handleCloseMovie();
     getData();
+
+    return () => {
+      controller.abort();
+    };
   }, [query]);
 
   const handleSelectedMovie = (id) => {
