@@ -3,8 +3,6 @@ import PropTypes from "prop-types";
 
 const containerStyle = {
   display: "flex",
-  alignItem: "center",
-  gap: "26px",
 };
 
 export const StarRating = ({

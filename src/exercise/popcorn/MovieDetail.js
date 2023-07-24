@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Loading } from "./Loading";
 import { StarRating } from "./start_rating.component";
 
@@ -12,6 +12,13 @@ const MovieDetail = ({
   const [movie, setMovie] = useState({});
   const [isloading, setIsLoading] = useState(false);
   const [userRating, setUserRating] = useState(null);
+  const [avgRating, setAvgRating] = useState(0);
+
+  const countRef = useRef(0);
+
+  useEffect(() => {
+    if (userRating) countRef.current++;
+  }, [userRating]);
 
   const isWatched = watched.map((movie) => movie.imdbID).includes(selectedId);
   const watchedUserRating = watched.find(
@@ -58,6 +65,7 @@ const MovieDetail = ({
     getDataDetail();
   }, [selectedId]);
 
+  const isTop = imdbRating > 8;
   const handleAddMovie = () => {
     const newWatchedMovie = {
       imdbID: selectedId,
@@ -67,9 +75,13 @@ const MovieDetail = ({
       runtime: Number(runtime.split(" ").at(0)),
       imdbRating: Number(imdbRating),
       userRating,
+      countRatingDecision: countRef.current,
     };
 
     onWatchedMovie(newWatchedMovie);
+
+    setAvgRating(Number(imdbRating));
+    setAvgRating((avgRating) => (avgRating + userRating) / 2);
   };
 
   useEffect(() => {
@@ -112,13 +124,15 @@ const MovieDetail = ({
             </div>
           </header>
           <section className="mt-6 mx-6">
-            <div className="bg-slate-600 my-6 py-3 px-4 flex flex-col justify-center gap-3  rounded-sm">
+            {/* <p>{isTop && avgRating}</p> */}
+            <div className="bg-slate-600 my-6 py-3 px-4 flex flex-col justify-center rounded-sm">
               {!isWatched ? (
                 <>
                   <StarRating
                     maxRating={10}
                     size={24}
                     onSetRating={setUserRating}
+                    className="gap-2 px-2 justify-center items-center"
                   />
                   {userRating > 0 && (
                     <button

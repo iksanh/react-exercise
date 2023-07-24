@@ -1,4 +1,4 @@
-import { average } from "./popcorn.component";
+import { average } from "./PopCornApp";
 
 export const WatchedSummary = ({ watched }) => {
   const avgImdbRating = average(watched.map((movie) => movie.imdbRating));

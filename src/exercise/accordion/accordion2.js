@@ -17,7 +17,7 @@ const faqs = [
 const Accordion = ({ data }) => {
   const [curOpen, setCurOpen] = useState(null);
   return (
-    <div className="flex flex-col gap-y-6 px-20 mx-20 w-1/2">
+    <div className="flex flex-col gap-y-6 px-20 mx-20 w-1/2 h-screen ">
       {data.map((item, index) => (
         <AccordionItem
           curOpen={curOpen}

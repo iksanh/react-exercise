@@ -6,7 +6,7 @@ export const Box = ({ children }) => {
   // using element
   const [isOpen, setIsOpen] = useState(true);
   return (
-    <div className="bg-slate-700 relative rounded-lg shadow-md w-1/4">
+    <div className="bg-slate-700 relative rounded-lg shadow-md mx-20 w-1/4 md:w-1/2">
       <button
         className="absolute text-white top-2 right-2 h-6 w-6 pb-[2px] pl-[1px] rounded-full bg-slate-900 flex items-center justify-center"
         onClick={() => setIsOpen((open) => !open)}

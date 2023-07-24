@@ -69,7 +69,7 @@ const NumResult = ({ movies }) => {
   );
 };
 
-export default function Popcorn() {
+const AppPopCorn = () => {
   const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);
   const [watched, setWatched] = useState([]);
@@ -186,4 +186,6 @@ export default function Popcorn() {
       </Main>
     </div>
   );
-}
+};
+
+export default AppPopCorn;

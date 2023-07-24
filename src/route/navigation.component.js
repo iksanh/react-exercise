@@ -2,27 +2,19 @@ import { Link, Outlet } from "react-router-dom";
 const Navigation = () => {
   return (
     <>
-      <header className="bg-white py-4 drop-shadow-sm mb-2">
-        <nav className="flex justify-between px-20">
-          <div>Logo</div>
-          <ul className="flex justify-between space-x-10">
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="travel-list">TravelList</Link>
-            </li>
-            <li>
-              <Link to="exercise">Exercise</Link>
-            </li>
-            <li>
-              <Link to="chalange">Chalange</Link>
-            </li>
-            <li>
-              <Link to="start_rating">component</Link>
-            </li>
-          </ul>
-        </nav>
+      <header className="text-gray-600 body-font">
+        <div className="container mx-auto flex flex-wrap px-24 py-6 flex-col md:flex-row items-center">
+          <div className="text-brand-dark font-semibold">IKSAN HARIJI</div>
+          <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center gap-5">
+            <Link to="/" className="hover:text-gray-900 ">
+              Home
+            </Link>
+            <Link to="travel-list">TravelList</Link>
+            <Link to="exercise">Exercise</Link>
+            <Link to="chalange">Chalange</Link>
+            <Link to="start_rating">component</Link>
+          </nav>
+        </div>
       </header>
       <Outlet />
     </>
