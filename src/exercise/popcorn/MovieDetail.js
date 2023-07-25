@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Loading } from "./Loading";
 import { StarRating } from "./start_rating.component";
+import { useKey } from "./useKey";
 
 const MovieDetail = ({
   selectedId,
@@ -38,18 +39,8 @@ const MovieDetail = ({
     Genre: genre,
   } = movie;
 
-  useEffect(() => {
-    const callback = (e) => {
-      if (e.code === "Escape") {
-        onCloseMovie();
-        // console.log("Closing");
-      }
-    };
-    document.addEventListener("keydown", callback);
-    return () => {
-      document.removeEventListener("keydown", callback);
-    };
-  }, [onCloseMovie]);
+  // useCostum Hook useKey
+  useKey("Escape", onCloseMovie);
 
   useEffect(() => {
     const getDataDetail = async () => {

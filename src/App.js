@@ -14,6 +14,7 @@ import TextExpander from "./chalange/textexpander/textexpander.component";
 import AppTextExpander from "./chalange/textexpander/textexpander.component";
 import CurrencyConverterApp from "./chalange/currencyconverter/CurrencyConverterApp";
 import AppPopCorn from "./exercise/popcorn/PopCornApp";
+import GeolocationApp from "./chalange/geolocation/GeolocationApp";
 
 const initialItems = [
   { id: 1, description: "Passports", quantity: 2, packed: false },
@@ -89,6 +90,7 @@ const App = () => {
           <Route path="calculator" element={<Calculator />} />
           <Route path="textexpander" element={<AppTextExpander />} />
           <Route path="currency" element={<CurrencyConverterApp />} />
+          <Route path="geolocationApp" element={<GeolocationApp />} />
         </Route>
         <Route path="*" element={<NoMatch />} />
       </Route>
