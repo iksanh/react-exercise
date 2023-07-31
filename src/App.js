@@ -15,6 +15,7 @@ import AppTextExpander from "./chalange/textexpander/textexpander.component";
 import CurrencyConverterApp from "./chalange/currencyconverter/CurrencyConverterApp";
 import AppPopCorn from "./exercise/popcorn/PopCornApp";
 import GeolocationApp from "./chalange/geolocation/GeolocationApp";
+import WeatherApp from "./exercise/weatherapp/WeatherApp";
 
 const initialItems = [
   { id: 1, description: "Passports", quantity: 2, packed: false },
@@ -84,6 +85,7 @@ const App = () => {
           <Route path="steps" element={<Steps />} />
           <Route path="popcorn" element={<AppPopCorn />} />
           <Route path="rating" element={<RatingComponent />} />
+          <Route path="weatherapp" element={<WeatherApp />} />
         </Route>
         <Route path="chalange">
           <Route index element={<Chalange />} />

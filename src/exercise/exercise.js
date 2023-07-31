@@ -6,6 +6,7 @@ const pageExercise = [
   { title: "accordion2", url: "accordion2" },
   { title: "steps", url: "steps" },
   { title: "popcorn", url: "popcorn" },
+  { title: "weatherapp", url: "weatherapp" },
 ];
 
 const Exercise = () => {
