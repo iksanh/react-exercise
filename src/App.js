@@ -16,6 +16,9 @@ import CurrencyConverterApp from "./chalange/currencyconverter/CurrencyConverter
 import AppPopCorn from "./exercise/popcorn/PopCornApp";
 import GeolocationApp from "./chalange/geolocation/GeolocationApp";
 import WeatherApp from "./exercise/weatherapp/WeatherApp";
+import WeatherAppFunction from "./exercise/weatherapp/WeatherAppFunction";
+import DateCounter from "./exercise/react-quiz/DateCounter";
+import ReactQuizApp from "./exercise/react-quiz/ReactQuizApp";
 
 const initialItems = [
   { id: 1, description: "Passports", quantity: 2, packed: false },
@@ -86,6 +89,9 @@ const App = () => {
           <Route path="popcorn" element={<AppPopCorn />} />
           <Route path="rating" element={<RatingComponent />} />
           <Route path="weatherapp" element={<WeatherApp />} />
+          <Route path="weatherappfunction" element={<WeatherAppFunction />} />
+          <Route path="datecounter" element={<DateCounter />} />
+          <Route path="reactquiz" element={<ReactQuizApp />} />
         </Route>
         <Route path="chalange">
           <Route index element={<Chalange />} />

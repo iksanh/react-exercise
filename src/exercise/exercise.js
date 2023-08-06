@@ -7,6 +7,9 @@ const pageExercise = [
   { title: "steps", url: "steps" },
   { title: "popcorn", url: "popcorn" },
   { title: "weatherapp", url: "weatherapp" },
+  { title: "weatherappfunction", url: "weatherappfunction" },
+  { title: "datecounter", url: "datecounter" },
+  { title: "reactquiz", url: "reactquiz" },
 ];
 
 const Exercise = () => {
