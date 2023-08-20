@@ -13,6 +13,7 @@ const Navigation = () => {
             <Link to="exercise">Exercise</Link>
             <Link to="chalange">Chalange</Link>
             <Link to="start_rating">component</Link>
+            <Link to="article">Article</Link>
           </nav>
         </div>
       </header>

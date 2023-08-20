@@ -16,6 +16,9 @@ const Chalange = () => {
         <li>
           <Link to="geolocationApp">geolocation</Link>
         </li>
+        <li>
+          <Link to="bankAccountApp">Bank Account</Link>
+        </li>
       </ul>
     </div>
   );

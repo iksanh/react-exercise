@@ -1,7 +1,4 @@
-import { useQuiz } from "./QuizContext";
-
-const NextButton = () => {
-  const { dispatch, index, numQuestions } = useQuiz();
+const NextButton = ({ dispatch, index, numQuestions }) => {
   const lastQuestion = index === numQuestions - 1;
   return (
     <button

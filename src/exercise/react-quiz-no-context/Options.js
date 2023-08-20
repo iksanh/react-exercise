@@ -1,10 +1,6 @@
-import { useQuiz } from "./QuizContext";
-
-const Option = () => {
-  const { questions, answer, handleNewAnswer, index } = useQuiz();
-  const { options, correctOption } = questions[index];
-
+const Option = ({ options, dispatch, answer, correctOption }) => {
   const hasAnswered = answer !== null;
+  console.log(hasAnswered);
 
   return (
     <div className="flex flex-col gap-5 mb-12 w-2/3 ">
@@ -21,7 +17,7 @@ const Option = () => {
           } `}
           key={option}
           disabled={hasAnswered}
-          onClick={() => handleNewAnswer(index)}
+          onClick={() => dispatch({ type: "newAnswer", payload: index })}
         >
           {option}
         </button>

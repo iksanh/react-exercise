@@ -1,4 +1,4 @@
-import { Link, Route, Routes, Router } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import TravelList from "./components/TravelList";
 import Accordion1 from "./exercise/accordion/accordion1";
 import Exercise from "./exercise/exercise";
@@ -8,9 +8,9 @@ import Accordion2 from "./exercise/accordion/accordion2";
 import Chalange from "./chalange/chalange.component";
 import Calculator from "./chalange/calculator/calculator.component";
 
-import StarRating from "./exercise/popcorn/start_rating.component";
+// import StarRating from "./exercise/popcorn/start_rating.component";
 import RatingComponent from "./exercise/popcorn/start_rating.component";
-import TextExpander from "./chalange/textexpander/textexpander.component";
+// import TextExpander from "./chalange/textexpander/textexpander.component";
 import AppTextExpander from "./chalange/textexpander/textexpander.component";
 import CurrencyConverterApp from "./chalange/currencyconverter/CurrencyConverterApp";
 import AppPopCorn from "./exercise/popcorn/PopCornApp";
@@ -19,12 +19,16 @@ import WeatherApp from "./exercise/weatherapp/WeatherApp";
 import WeatherAppFunction from "./exercise/weatherapp/WeatherAppFunction";
 import DateCounter from "./exercise/react-quiz/DateCounter";
 import ReactQuizApp from "./exercise/react-quiz/ReactQuizApp";
+import BAnkAccountApp from "./chalange/bankaccount/BankAccountApp";
+import DestructuringApp from "./article/DestructuringApp";
+import ArticleApp from "./article/Article";
+import { QuizProvider } from "./exercise/react-quiz/QuizContext";
 
-const initialItems = [
-  { id: 1, description: "Passports", quantity: 2, packed: false },
-  { id: 2, description: "Socks", quantity: 12, packed: true },
-  { id: 3, description: "Charge", quantity: 1, packed: false },
-];
+// const initialItems = [
+//   { id: 1, description: "Passports", quantity: 2, packed: false },
+//   { id: 2, description: "Socks", quantity: 12, packed: true },
+//   { id: 3, description: "Charge", quantity: 1, packed: false },
+// ];
 const Home = () => {
   return (
     <section className="text-gray-600 mx-20 body-font ">
@@ -91,7 +95,15 @@ const App = () => {
           <Route path="weatherapp" element={<WeatherApp />} />
           <Route path="weatherappfunction" element={<WeatherAppFunction />} />
           <Route path="datecounter" element={<DateCounter />} />
-          <Route path="reactquiz" element={<ReactQuizApp />} />
+
+          <Route
+            path="reactquiz"
+            element={
+              <QuizProvider>
+                <ReactQuizApp />
+              </QuizProvider>
+            }
+          />
         </Route>
         <Route path="chalange">
           <Route index element={<Chalange />} />
@@ -99,6 +111,11 @@ const App = () => {
           <Route path="textexpander" element={<AppTextExpander />} />
           <Route path="currency" element={<CurrencyConverterApp />} />
           <Route path="geolocationApp" element={<GeolocationApp />} />
+          <Route path="bankAccountApp" element={<BAnkAccountApp />} />
+        </Route>
+        <Route path="article">
+          <Route index element={<ArticleApp />} />
+          <Route path="destructuring" element={<DestructuringApp />} />
         </Route>
         <Route path="*" element={<NoMatch />} />
       </Route>

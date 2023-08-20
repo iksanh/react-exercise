@@ -1,7 +1,10 @@
-import { useQuiz } from "./QuizContext";
-
-const Progress = () => {
-  const { index, numQuestions, points, answer, maxPosiblePoints } = useQuiz();
+const Progress = ({
+  index,
+  numQuestions,
+  points,
+  answer,
+  maxPosiblePoints,
+}) => {
   return (
     <header className="flex flex-col justify-between px-40 py-8 gap-2 ">
       <div className="w-full bg-gray-400 rounded-full dark:bg-gray-700">

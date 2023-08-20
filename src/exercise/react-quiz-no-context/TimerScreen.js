@@ -1,8 +1,7 @@
+import { useState } from "react";
 import { useEffect } from "react";
-import { useQuiz } from "./QuizContext";
 
-const TimerScreen = () => {
-  const { dispatch, secondRemaining } = useQuiz();
+const TimerScreen = ({ dispatch, secondRemaining }) => {
   const minutes = Math.floor(secondRemaining / 60);
   const seconds = secondRemaining % 60;
   useEffect(
