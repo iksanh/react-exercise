@@ -10,6 +10,7 @@ const pageExercise = [
   { title: "weatherappfunction", url: "weatherappfunction" },
   { title: "datecounter", url: "datecounter" },
   { title: "reactquiz", url: "reactquiz" },
+  { title: "app Using Redux", url: "intro-redux" },
 ];
 
 const Exercise = () => {

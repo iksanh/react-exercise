@@ -19,6 +19,12 @@ const Chalange = () => {
         <li>
           <Link to="bankAccountApp">Bank Account</Link>
         </li>
+        <li>
+          <Link to="reactrender">App React Render</Link>
+        </li>
+        <li>
+          <Link to="compoundcomponentpattern">Compound Component Pattern</Link>
+        </li>
       </ul>
     </div>
   );

@@ -23,6 +23,11 @@ import BAnkAccountApp from "./chalange/bankaccount/BankAccountApp";
 import DestructuringApp from "./article/DestructuringApp";
 import ArticleApp from "./article/Article";
 import { QuizProvider } from "./exercise/react-quiz/QuizContext";
+import AppRedux from "./exercise/redux-intro/App";
+import { Provider } from "react-redux";
+import store from "./exercise/redux-intro/store";
+import AppReactRender from "./chalange/render_props/App";
+import AppCompundComponentPattern from "./chalange/compoundcomponenpattern/App";
 
 // const initialItems = [
 //   { id: 1, description: "Passports", quantity: 2, packed: false },
@@ -32,14 +37,14 @@ import { QuizProvider } from "./exercise/react-quiz/QuizContext";
 const Home = () => {
   return (
     <section className="text-gray-600 mx-20 body-font ">
-      <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
-        <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center ">
-          <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
+      <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+        <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center ">
+          <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
             Be a Professional Human who is Always
-            <br class="hidden lg:inline-block" />
+            <br className="hidden lg:inline-block" />
             <p className="italic">Grateful, Strives, and Benefits others</p>
           </h1>
-          <p class="mb-8 leading-relaxed">
+          <p className="mb-8 leading-relaxed">
             As a Professional Human, I always have a positive and grateful
             attitude. I work hard to do my best in everything I do and
             continuously improve myself. My main focus is on helping and
@@ -59,9 +64,9 @@ const Home = () => {
             </button>
           </div> */}
         </div>
-        <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+        <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
           <img
-            class="object-cover object-center rounded"
+            className="object-cover object-center rounded"
             alt="hero"
             src="https://dummyimage.com/720x600"
           />
@@ -80,46 +85,55 @@ const NoMatch = () => {
 
 const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Navigation />}>
-        <Route index element={<Home />} />
-        <Route path="travel-list" element={<TravelList />} />
-        <Route path="accordion" element={<Accordion1 />} />
-        <Route path="exercise">
-          <Route index element={<Exercise />} />
+    <Provider store={store}>
+      <Routes>
+        <Route path="/" element={<Navigation />}>
+          <Route index element={<Home />} />
+          <Route path="travel-list" element={<TravelList />} />
           <Route path="accordion" element={<Accordion1 />} />
-          <Route path="accordion2" element={<Accordion2 />} />
-          <Route path="steps" element={<Steps />} />
-          <Route path="popcorn" element={<AppPopCorn />} />
-          <Route path="rating" element={<RatingComponent />} />
-          <Route path="weatherapp" element={<WeatherApp />} />
-          <Route path="weatherappfunction" element={<WeatherAppFunction />} />
-          <Route path="datecounter" element={<DateCounter />} />
+          <Route path="exercise">
+            <Route index element={<Exercise />} />
+            <Route path="accordion" element={<Accordion1 />} />
+            <Route path="accordion2" element={<Accordion2 />} />
+            <Route path="steps" element={<Steps />} />
+            <Route path="popcorn" element={<AppPopCorn />} />
+            <Route path="rating" element={<RatingComponent />} />
+            <Route path="weatherapp" element={<WeatherApp />} />
+            <Route path="weatherappfunction" element={<WeatherAppFunction />} />
+            <Route path="datecounter" element={<DateCounter />} />
 
-          <Route
-            path="reactquiz"
-            element={
-              <QuizProvider>
-                <ReactQuizApp />
-              </QuizProvider>
-            }
-          />
+            <Route path="intro-redux" element={<AppRedux />} />
+
+            <Route
+              path="reactquiz"
+              element={
+                <QuizProvider>
+                  <ReactQuizApp />
+                </QuizProvider>
+              }
+            />
+          </Route>
+          <Route path="chalange">
+            <Route index element={<Chalange />} />
+            <Route path="calculator" element={<Calculator />} />
+            <Route path="textexpander" element={<AppTextExpander />} />
+            <Route path="currency" element={<CurrencyConverterApp />} />
+            <Route path="geolocationApp" element={<GeolocationApp />} />
+            <Route path="bankAccountApp" element={<BAnkAccountApp />} />
+            <Route path="reactrender" element={<AppReactRender />} />
+            <Route
+              path="compoundcomponentpattern"
+              element={<AppCompundComponentPattern />}
+            />
+          </Route>
+          <Route path="article">
+            <Route index element={<ArticleApp />} />
+            <Route path="destructuring" element={<DestructuringApp />} />
+          </Route>
+          <Route path="*" element={<NoMatch />} />
         </Route>
-        <Route path="chalange">
-          <Route index element={<Chalange />} />
-          <Route path="calculator" element={<Calculator />} />
-          <Route path="textexpander" element={<AppTextExpander />} />
-          <Route path="currency" element={<CurrencyConverterApp />} />
-          <Route path="geolocationApp" element={<GeolocationApp />} />
-          <Route path="bankAccountApp" element={<BAnkAccountApp />} />
-        </Route>
-        <Route path="article">
-          <Route index element={<ArticleApp />} />
-          <Route path="destructuring" element={<DestructuringApp />} />
-        </Route>
-        <Route path="*" element={<NoMatch />} />
-      </Route>
-    </Routes>
+      </Routes>
+    </Provider>
   );
 };
 
